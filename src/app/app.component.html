@@ -1,0 +1,45 @@
+<div class="container-fluid">
+  <app-header></app-header>
+  <router-outlet></router-outlet>
+  <app-footer></app-footer>
+</div>
+
+
+<!--START Modal-Form to Add New Customer Info -->
+<form [formGroup]="authRequestForm" (ngSubmit)="login(authRequestForm.value)" novalidate>
+  <div class="modal fade" id="login" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Gupta Tailor &amp; Drappers</h4>
+        </div>
+        <div class="modal-body">
+          <div class="input-group">
+            <div class="input-group-addon">
+              <i class="fa fa-user" aria-hidden="true"></i>
+            </div>
+            <input type="text" class="form-control" formControlName="code" placeholder="Enter 4 digits Code..." maxlength="4" data-toggle="tooltip"
+              data-placement="bottom" title="Login">
+            <span class="input-group-btn">
+              <button type="submit" class="btn btn-success" [disabled]="!authRequestForm.valid">Login</button>
+            </span>
+          </div>
+          <div *ngIf="messageError" class="alert alert-danger">
+            <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i> Code is not authorized!
+          </div>
+          <div *ngIf="authRequestForm.controls['code'].hasError('required') && !authRequestForm.controls['code'].pristine" class="alert alert-danger">
+            <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i> Login Code is Required!
+          </div>
+          <div *ngIf="authRequestForm.controls['code'].hasError('pattern')" class="alert alert-danger">
+            <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i> Login Code Accepts Numbers Only!
+          </div>
+          <div *ngIf="authRequestForm.controls['code'].hasError('maxlength')" class="alert alert-danger">
+            <i class="fa fa-times-circle" style="color: red;" aria-hidden="true"></i> Login Code Accepts 4 digits Only!
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</form>
+<!--END Modal-Form to Add New Customer Info-->
