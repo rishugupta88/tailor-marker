@@ -113,7 +113,7 @@
               <i class="fa fa-times-circle" style="color: red;"></i> Customer Name is Required!
             </div>
             <div *ngIf="newCustomerRequestForm.controls['custName'].hasError('pattern')" class="alert alert-danger">
-              <i class="fa fa-times-circle" style="color: red;"></i> Customer Name Accepts Alphabets Only!
+              <i class="fa fa-times-circle" style="color: red;"></i> Customer Name Accepts Alphabets and Numbers Only!
             </div>
             <div *ngIf="newCustomerRequestForm.controls['custName'].hasError('maxlength')" class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Contact Name Accepts 30 digits Only!

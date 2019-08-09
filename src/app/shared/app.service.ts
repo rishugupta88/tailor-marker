@@ -1,9 +1,8 @@
 import { Injectable } from '@angular/core';
-
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from 'angularfire2/firestore';
-import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/operator/map';
+import { Observable } from 'rxjs';
 import { Customer } from './customer.model';
+import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+
 
 @Injectable()
 export class AppService {
@@ -33,7 +32,7 @@ export class AppService {
     return this.customers;
   }
 
-  getCustomerById(custContact) {
+  getCustomerById(custContact: any) {
     this.getDoc = this.afs.collection('customers').doc(custContact);
     this.customer = this.getDoc.valueChanges();
     return this.customer;
@@ -43,25 +42,25 @@ export class AppService {
     this.afs.collection('customers').doc(customer.custContact).set(customer);
   }
 
-  updateCustomerMethod(updateCustomerObject, customerContact) {
+  updateCustomerMethod(updateCustomerObject: any, customerContact: any) {
     this.updateCustomer = this.afs.collection('customers').doc(customerContact);
     this.updateCustomer.update(updateCustomerObject);
   }
 
 
   //Order Section --START 
-  createNewOrder(order) {
+  createNewOrder(order: any) {
     this.afs.collection('orders').doc(order.orderNumber).set(order);
   }
 
-  cancelOrder(orderNumber) {
+  cancelOrder(orderNumber: any) {
     this.updateOrder = this.afs.collection('orders').doc(orderNumber);
-    this.updateOrder.update({status:"cancelled"});
+    this.updateOrder.update({ status: "cancelled" });
   }
 
-  deliverOrder(orderNumber) {
+  deliverOrder(orderNumber: any) {
     this.updateOrder = this.afs.collection('orders').doc(orderNumber);
-    this.updateOrder.update({status:"delivered"});
+    this.updateOrder.update({ status: "delivered" });
   }
 
   getAllOrders() {

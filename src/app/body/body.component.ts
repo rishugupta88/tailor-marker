@@ -4,9 +4,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { AppService } from '../shared/app.service';
 import { HeaderComponent } from '../header/header.component';
 
-import { Observable } from 'rxjs/Rx';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { Customer } from '../shared/customer.model';
 
 declare var $: any;
@@ -43,7 +40,7 @@ export class BodyComponent implements OnInit {
 
   //GLOBAL FORMS ---START
   newCustomerRequestForm = new FormGroup({
-    custName: new FormControl('', [Validators.pattern('^[A-Z a-z]*$'), Validators.required, Validators.maxLength(30)]),
+    custName: new FormControl('', [Validators.pattern('^[A-Z a-z0-9]*$'), Validators.required, Validators.maxLength(30)]),
     custContact: new FormControl('', [Validators.pattern('^[0-9]*$'), Validators.required, Validators.maxLength(10)]),
     custAddress: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.maxLength(100)])
   });
