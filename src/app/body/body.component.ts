@@ -42,7 +42,9 @@ export class BodyComponent implements OnInit {
   newCustomerRequestForm = new FormGroup({
     custName: new FormControl('', [Validators.pattern('^[A-Z a-z0-9]*$'), Validators.required, Validators.maxLength(30)]),
     custContact: new FormControl('', [Validators.pattern('^[0-9]*$'), Validators.required, Validators.maxLength(10)]),
-    custAddress: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.maxLength(100)])
+    custAddress: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.maxLength(100)]),
+    custCopyNumber: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.required, Validators.maxLength(10)]),
+    custCopyDate: new FormControl('', [Validators.required])
   });
 
   existingCustomerRequestForm = new FormGroup({
@@ -174,7 +176,7 @@ export class BodyComponent implements OnInit {
 
   setValuestoAllForms() {
     this.existingCustomerRequestForm.reset();
-    
+
     //Set Shirt Measurement
     this.shirtRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.shirt.L);
     this.shirtRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.shirt.C);
@@ -201,7 +203,7 @@ export class BodyComponent implements OnInit {
     this.pantRequestForm.controls['pocketType'].setValue(this.selectedCustomer.custSubscriptions.pant.pocketType);
     this.pantRequestForm.controls['backPocket'].setValue(this.selectedCustomer.custSubscriptions.pant.backPocket);
 
-    
+
     //Set Kudta Measurement
     this.kudtaRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.kudta.L);
     this.kudtaRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.kudta.C);

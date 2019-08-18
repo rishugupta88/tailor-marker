@@ -20,7 +20,8 @@
 </div>
 
 <!-- Existing Customer Container -->
-<form [formGroup]="existingCustomerRequestForm" (ngSubmit)="showAllFeatures(existingCustomerRequestForm.value)" novalidate>
+<form [formGroup]="existingCustomerRequestForm" (ngSubmit)="showAllFeatures(existingCustomerRequestForm.value)"
+  novalidate>
 
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
@@ -28,8 +29,9 @@
         <div class="input-group-addon">
           <i class="fa fa-mobile"></i>
         </div>
-        <input type="text" class="form-control" formControlName="seachNumber" placeholder="Enter Mobile Number to Search a Customer..."
-          maxlength="10" minlength="10" data-toggle="tooltip" data-placement="top" title="Enter Mobile Number to Search a Customer...">
+        <input type="text" class="form-control" formControlName="seachNumber"
+          placeholder="Enter Mobile Number to Search a Customer..." maxlength="10" minlength="10" data-toggle="tooltip"
+          data-placement="top" title="Enter Mobile Number to Search a Customer...">
         <span class="input-group-btn">
           <button type="submit" class="btn btn-success" [disabled]="!existingCustomerRequestForm.valid">Go!</button>
         </span>
@@ -40,10 +42,11 @@
       <!--Selected Customer Code-->
       <div style="color:white;margin-top: 10px;">
         <span class="selectlabel">Selected Customer:</span>
-        <span class="selectText">{{selectedCustomer.custName}} || {{selectedCustomer.custContact}}</span>
+        <span class="selectText">{{selectedCustomer.custName}} || {{selectedCustomer.custContact}} || {{selectedCustomer.custCopyNumber}} || {{selectedCustomer.custCopyDate}}</span>
       </div>
 
-      <div *ngIf="existingCustomerRequestForm.controls['seachNumber'].hasError('pattern')" class="alert alert-danger" style="width:500px;">
+      <div *ngIf="existingCustomerRequestForm.controls['seachNumber'].hasError('pattern')" class="alert alert-danger"
+        style="width:500px;">
         <i class="fa fa-times-circle" style="color: red;"></i> Customer Mobile Number Accepts Numbers only!
       </div>
       <div *ngIf="customerNotFound" class="alert alert-danger" style="width:500px;">
@@ -108,7 +111,8 @@
         <div class="modal-body">
           <div class="form-group">
             <input type="text" class="form-control" formControlName="custName" placeholder="Enter Customer Name">
-            <div *ngIf="newCustomerRequestForm.controls['custName'].hasError('required') && !newCustomerRequestForm.controls['custName'].pristine"
+            <div
+              *ngIf="newCustomerRequestForm.controls['custName'].hasError('required') && !newCustomerRequestForm.controls['custName'].pristine"
               class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Customer Name is Required!
             </div>
@@ -121,26 +125,42 @@
           </div>
           <div class="form-group">
             <input type="text" class="form-control" formControlName="custContact" placeholder="Enter Mobile Number">
-            <div *ngIf="newCustomerRequestForm.controls['custContact'].hasError('required') && !newCustomerRequestForm.controls['custContact'].pristine"
+            <div
+              *ngIf="newCustomerRequestForm.controls['custContact'].hasError('required') && !newCustomerRequestForm.controls['custContact'].pristine"
               class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Contact Number is Required!
             </div>
             <div *ngIf="newCustomerRequestForm.controls['custContact'].hasError('pattern')" class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Contact Number Accepts Numbers Only!
             </div>
-            <div *ngIf="newCustomerRequestForm.controls['custContact'].hasError('maxlength')" class="alert alert-danger">
+            <div *ngIf="newCustomerRequestForm.controls['custContact'].hasError('maxlength')"
+              class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Contact Number Accepts 10 digits Only!
             </div>
           </div>
           <div class="form-group">
             <input type="text" class="form-control" formControlName="custAddress" placeholder="Enter Customer Address">
             <div *ngIf="newCustomerRequestForm.controls['custAddress'].hasError('pattern')" class="alert alert-danger">
-              <i class="fa fa-times-circle" style="color: red;"></i> Customer Address Accepts Alphabets, Numbers and Periods Only!
+              <i class="fa fa-times-circle" style="color: red;"></i> Customer Address Accepts Alphabets, Numbers and
+              Periods Only!
             </div>
-            <div *ngIf="newCustomerRequestForm.controls['custAddress'].hasError('maxlength')" class="alert alert-danger">
+            <div *ngIf="newCustomerRequestForm.controls['custAddress'].hasError('maxlength')"
+              class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Customer Address Accepts 100 Characters Only!
             </div>
           </div>
+          <div class="form-group">
+            <input type="text" class="form-control" formControlName="custCopyNumber" placeholder="Enter Copy Number" maxlength="10">
+            <div *ngIf="newCustomerRequestForm.controls['custCopyNumber'].hasError('pattern')"
+              class="alert alert-danger">
+              <i class="fa fa-times-circle" style="color: red;"></i> Copy Number Accepts Alphabets, Numbers and Periods
+              Only!
+            </div>
+          </div>
+          <div class="form-group">
+            <input type="date" class="form-control" formControlName="custCopyDate" placeholder="Enter Copy Date">
+          </div>
+
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -257,7 +277,8 @@
                 <input type="text" class="form-control pantNumberBox" formControlName="H" placeholder="H" maxlength="5">
               </li>
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="IL" placeholder="IL" maxlength="5">
+                <input type="text" class="form-control pantNumberBox" formControlName="IL" placeholder="IL"
+                  maxlength="5">
               </li>
               <li>
                 <input type="text" class="form-control pantNumberBox" formControlName="B" placeholder="B" maxlength="5">
@@ -332,10 +353,12 @@
                 <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="kera" placeholder="Kera" maxlength="5">
+                <input type="text" class="form-control numberBox" formControlName="kera" placeholder="Kera"
+                  maxlength="5">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="kamar" placeholder="Kamar" maxlength="5">
+                <input type="text" class="form-control numberBox" formControlName="kamar" placeholder="Kamar"
+                  maxlength="5">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="collar">
@@ -392,7 +415,8 @@
               <option value="pcp">Pant Cut Pajama</option>
               <option value="pp">Pant Pajama</option>
             </select>
-            <select class="form-control selectControl" *ngIf='pajamaRequestForm.controls["type"].value == "pcp"' formControlName="pocket">
+            <select class="form-control selectControl" *ngIf='pajamaRequestForm.controls["type"].value == "pcp"'
+              formControlName="pocket">
               <option value="select">Select Pocket</option>
               <option value="y">Yes</option>
               <option value="n">No</option>
@@ -432,41 +456,41 @@
 <!--START Jacket Modal-Form-->
 <form [formGroup]="jacketRequestForm" (ngSubmit)="associateJacket(jacketRequestForm.value)" novalidate>
 
-    <div class="modal fade" id="jacketModal" role="dialog">
-      <div class="modal-dialog">
-  
-        <!-- Modal content-->
-        <div class="modal-content">
-          <div class="modal-header">
-            <h4 class="modal-title">Jacket Measurement Scale</h4>
-          </div>
-          <div class="modal-body">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
-              <select class="form-control selectControl" formControlName="type">
-                <option value="select">Select WaistCoat Type</option>
-                <option value="vc">V-Cut</option>
-                <option value="bc">Ban Collar</option>
-              </select>
-              <select class="form-control selectControl" formControlName="pattern">
-                <option value="select">Select Pattern</option>
-                <option value="s">Simple</option>
-                <option value="d">Designer</option>
-              </select>
-            </div>
-            <div align="right">
-              <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-              <button type="submit" class="btn btn-success" [disabled]="!jacketRequestForm.valid">Save</button>
-            </div>
-          </div>
-  
+  <div class="modal fade" id="jacketModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Jacket Measurement Scale</h4>
         </div>
+        <div class="modal-body">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+            <select class="form-control selectControl" formControlName="type">
+              <option value="select">Select WaistCoat Type</option>
+              <option value="vc">V-Cut</option>
+              <option value="bc">Ban Collar</option>
+            </select>
+            <select class="form-control selectControl" formControlName="pattern">
+              <option value="select">Select Pattern</option>
+              <option value="s">Simple</option>
+              <option value="d">Designer</option>
+            </select>
+          </div>
+          <div align="right">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success" [disabled]="!jacketRequestForm.valid">Save</button>
+          </div>
+        </div>
+
       </div>
-  
     </div>
-  </form>
-  <!--END Jacket Modal-Form-->
-  
-  
+
+  </div>
+</form>
+<!--END Jacket Modal-Form-->
+
+
 
 <!--START Coat Modal-Form-->
 <form [formGroup]="coatRequestForm" (ngSubmit)="associateCoat(coatRequestForm.value)" novalidate>
@@ -514,7 +538,8 @@
               <option value="thp">Three Piece</option>
             </select>
 
-            <input *ngIf='coatRequestForm.controls["type"].value == "thp"' type="text" class="form-control numberBox" formControlName="BL" placeholder="BL" maxlength="5">
+            <input *ngIf='coatRequestForm.controls["type"].value == "thp"' type="text" class="form-control numberBox"
+              formControlName="BL" placeholder="BL" maxlength="5">
 
             <select class="form-control selectControl" formControlName="design">
               <option value="select">Select Design</option>
