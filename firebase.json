@@ -4,6 +4,7 @@
   },
   "hosting": {
     "public": "dist",
+    "site": "guptatailor",
     "ignore": [
       "firebase.json",
       "**/.*",

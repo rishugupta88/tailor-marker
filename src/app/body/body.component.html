@@ -513,6 +513,9 @@
               <option value="tp">Two Piece</option>
               <option value="thp">Three Piece</option>
             </select>
+
+            <input *ngIf='coatRequestForm.controls["type"].value == "thp"' type="text" class="form-control numberBox" formControlName="BL" placeholder="BL" maxlength="5">
+
             <select class="form-control selectControl" formControlName="design">
               <option value="select">Select Design</option>
               <option value="f">Formal</option>

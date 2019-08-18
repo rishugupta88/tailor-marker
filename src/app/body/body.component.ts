@@ -122,6 +122,7 @@ export class BodyComponent implements OnInit {
     LB: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
     type: new FormControl('select'),
     design: new FormControl('select'),
+    BL: new FormControl('', [Validators.pattern('^[0-9.]*$')]),
     collar: new FormControl('select'),
     basket: new FormControl('select'),
     button: new FormControl('select'),
@@ -161,6 +162,7 @@ export class BodyComponent implements OnInit {
         }, 3000);
       } else {
         this.selectedCustomer = dbCustomer;
+        console.log(this.selectedCustomer);
         this.showFeatureDiv = true;
         this.setValuestoAllForms();
         setTimeout(() => {
@@ -172,6 +174,7 @@ export class BodyComponent implements OnInit {
 
   setValuestoAllForms() {
     this.existingCustomerRequestForm.reset();
+    
     //Set Shirt Measurement
     this.shirtRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.shirt.L);
     this.shirtRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.shirt.C);
@@ -235,6 +238,7 @@ export class BodyComponent implements OnInit {
     this.coatRequestForm.controls['N'].setValue(this.selectedCustomer.custSubscriptions.coat.N);
     this.coatRequestForm.controls['B'].setValue(this.selectedCustomer.custSubscriptions.coat.B);
     this.coatRequestForm.controls['LB'].setValue(this.selectedCustomer.custSubscriptions.coat.LB);
+    this.coatRequestForm.controls['BL'].setValue(this.selectedCustomer.custSubscriptions.coat.BL);
     this.coatRequestForm.controls['type'].setValue(this.selectedCustomer.custSubscriptions.coat.type);
     this.coatRequestForm.controls['design'].setValue(this.selectedCustomer.custSubscriptions.coat.design);
     this.coatRequestForm.controls['collar'].setValue(this.selectedCustomer.custSubscriptions.coat.collar);
@@ -319,6 +323,7 @@ export class BodyComponent implements OnInit {
     newCustomer.custSubscriptions.pant = this.pantRequestForm.value;
     newCustomer.custSubscriptions.kudta = this.kudtaRequestForm.value;
     newCustomer.custSubscriptions.pajama = this.pajamaRequestForm.value;
+    newCustomer.custSubscriptions.jacket = this.jacketRequestForm.value;
     newCustomer.custSubscriptions.coat = this.coatRequestForm.value;
     newCustomer.custSubscriptions.safari = this.safariRequestForm.value;
 
