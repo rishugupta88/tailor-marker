@@ -20,6 +20,7 @@ import { FooterComponent } from './footer/footer.component';
 
 import { AppService } from './shared/app.service';
 import { OrdersComponent } from './orders/orders.component';
+import { TestfeatureComponent } from './testfeature/testfeature.component';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { OrdersComponent } from './orders/orders.component';
     HeaderComponent,
     BodyComponent,
     FooterComponent,
-    OrdersComponent
+    OrdersComponent,
+    TestfeatureComponent
   ],
   imports: [
     BrowserModule, 

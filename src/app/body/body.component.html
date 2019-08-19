@@ -30,7 +30,7 @@
           <i class="fa fa-mobile"></i>
         </div>
         <input type="text" class="form-control" formControlName="seachNumber"
-          placeholder="Enter Mobile Number to Search a Customer..." maxlength="10" minlength="10" data-toggle="tooltip"
+          placeholder="Enter Mobile Number to Search a Customer..." maxlength="12" minlength="10" data-toggle="tooltip"
           data-placement="top" title="Enter Mobile Number to Search a Customer...">
         <span class="input-group-btn">
           <button type="submit" class="btn btn-success" [disabled]="!existingCustomerRequestForm.valid">Go!</button>
@@ -218,7 +218,11 @@
               <option value="sf">Slim Fit</option>
               <option value="cf">Comfort Fit</option>
             </select>
-
+            <select class="form-control selectControl" formControlName="sleeve">
+              <option value="select">Select Sleeve</option>
+              <option value="hs">Half Sleeve</option>
+              <option value="fs">Full Sleeve</option>
+            </select>
             <select class="form-control selectControl" formControlName="design">
               <option value="select">Select Design</option>
               <option value="p">Piping</option>

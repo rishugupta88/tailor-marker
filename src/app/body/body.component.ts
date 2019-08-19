@@ -41,14 +41,14 @@ export class BodyComponent implements OnInit {
   //GLOBAL FORMS ---START
   newCustomerRequestForm = new FormGroup({
     custName: new FormControl('', [Validators.pattern('^[A-Z a-z0-9]*$'), Validators.required, Validators.maxLength(30)]),
-    custContact: new FormControl('', [Validators.pattern('^[0-9]*$'), Validators.required, Validators.maxLength(10)]),
+    custContact: new FormControl('', [Validators.pattern('^[0-9-]*$'), Validators.required, Validators.maxLength(12)]),
     custAddress: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.maxLength(100)]),
     custCopyNumber: new FormControl('', [Validators.pattern('^[A-Z a-z0-9. ]*$'), Validators.required, Validators.maxLength(10)]),
     custCopyDate: new FormControl('', [Validators.required])
   });
 
   existingCustomerRequestForm = new FormGroup({
-    seachNumber: new FormControl('', [Validators.pattern('^[0-9]*$'), Validators.required, Validators.maxLength(10)]),
+    seachNumber: new FormControl('', [Validators.pattern('^[0-9-]*$'), Validators.required, Validators.maxLength(12)]),
   });
 
   shirtRequestForm = new FormGroup({
@@ -61,8 +61,9 @@ export class BodyComponent implements OnInit {
     LU: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
     LL: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
     fit: new FormControl('select'),
+    sleeve: new FormControl('select'),
     design: new FormControl('select'),
-    pipingColor: new FormControl(''),
+    pipingColor: new FormControl('select'),
     stitch: new FormControl('select'),
     button: new FormControl('select')
   });
@@ -155,6 +156,7 @@ export class BodyComponent implements OnInit {
     $("#addNewCust").modal("show");
   }
 
+  //Main Page Search Fucntionality --START
   showAllFeatures(search) {
     this.appservice.getCustomerById(search.seachNumber).subscribe(dbCustomer => {
       if (!dbCustomer) {
@@ -174,6 +176,9 @@ export class BodyComponent implements OnInit {
     });
   }
 
+  //Main Page Search Fucntionality --END
+
+
   setValuestoAllForms() {
     this.existingCustomerRequestForm.reset();
 
@@ -187,6 +192,7 @@ export class BodyComponent implements OnInit {
     this.shirtRequestForm.controls['LU'].setValue(this.selectedCustomer.custSubscriptions.shirt.LU);
     this.shirtRequestForm.controls['LL'].setValue(this.selectedCustomer.custSubscriptions.shirt.LL);
     this.shirtRequestForm.controls['fit'].setValue(this.selectedCustomer.custSubscriptions.shirt.fit);
+    this.shirtRequestForm.controls['sleeve'].setValue(this.selectedCustomer.custSubscriptions.shirt.sleeve);    
     this.shirtRequestForm.controls['design'].setValue(this.selectedCustomer.custSubscriptions.shirt.design);
     this.shirtRequestForm.controls['pipingColor'].setValue(this.selectedCustomer.custSubscriptions.shirt.pipingColor);
     this.shirtRequestForm.controls['stitch'].setValue(this.selectedCustomer.custSubscriptions.shirt.stitch);
@@ -273,9 +279,11 @@ export class BodyComponent implements OnInit {
   //Rest Method
   resetMethod() {
     this.shirtRequestForm.controls['fit'].setValue("select");
+    this.shirtRequestForm.controls['sleeve'].setValue("select");
     this.shirtRequestForm.controls['design'].setValue("select");
     this.shirtRequestForm.controls['stitch'].setValue("select");
     this.shirtRequestForm.controls['button'].setValue("select");
+
 
     this.pantRequestForm.controls['fit'].setValue("select");
     this.pantRequestForm.controls['plateType'].setValue("select");
