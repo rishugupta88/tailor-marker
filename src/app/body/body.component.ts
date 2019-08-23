@@ -60,6 +60,8 @@ export class BodyComponent implements OnInit {
     N: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
     LU: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
     LL: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    AL: new FormControl('', [Validators.pattern('^[0-9.]*$')]),
+    AB: new FormControl('', [Validators.pattern('^[0-9.]*$')]),
     fit: new FormControl('select'),
     sleeve: new FormControl('select'),
     design: new FormControl('select'),
@@ -150,6 +152,19 @@ export class BodyComponent implements OnInit {
   });
 
 
+  indoRequestForm = new FormGroup({
+    type: new FormControl('select'),
+    L: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    C: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    W: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    S: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    A: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    N: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    B: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    LB: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required])
+  });
+
+
   //GLOBAL FORMS ---END
 
   showNewCustModal() {
@@ -191,6 +206,8 @@ export class BodyComponent implements OnInit {
     this.shirtRequestForm.controls['N'].setValue(this.selectedCustomer.custSubscriptions.shirt.N);
     this.shirtRequestForm.controls['LU'].setValue(this.selectedCustomer.custSubscriptions.shirt.LU);
     this.shirtRequestForm.controls['LL'].setValue(this.selectedCustomer.custSubscriptions.shirt.LL);
+    this.shirtRequestForm.controls['AL'].setValue(this.selectedCustomer.custSubscriptions.shirt.AL);
+    this.shirtRequestForm.controls['AB'].setValue(this.selectedCustomer.custSubscriptions.shirt.AB);
     this.shirtRequestForm.controls['fit'].setValue(this.selectedCustomer.custSubscriptions.shirt.fit);
     this.shirtRequestForm.controls['sleeve'].setValue(this.selectedCustomer.custSubscriptions.shirt.sleeve);    
     this.shirtRequestForm.controls['design'].setValue(this.selectedCustomer.custSubscriptions.shirt.design);
@@ -254,6 +271,17 @@ export class BodyComponent implements OnInit {
     this.coatRequestForm.controls['button'].setValue(this.selectedCustomer.custSubscriptions.coat.button);
     this.coatRequestForm.controls['cut'].setValue(this.selectedCustomer.custSubscriptions.coat.cut);
 
+    //Set Indo-Western Measurement
+    this.indoRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.indo.L);
+    this.indoRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.indo.C);
+    this.indoRequestForm.controls['W'].setValue(this.selectedCustomer.custSubscriptions.indo.W);
+    this.indoRequestForm.controls['S'].setValue(this.selectedCustomer.custSubscriptions.indo.S);
+    this.indoRequestForm.controls['A'].setValue(this.selectedCustomer.custSubscriptions.indo.A);
+    this.indoRequestForm.controls['N'].setValue(this.selectedCustomer.custSubscriptions.indo.N);
+    this.indoRequestForm.controls['B'].setValue(this.selectedCustomer.custSubscriptions.indo.B);
+    this.indoRequestForm.controls['LB'].setValue(this.selectedCustomer.custSubscriptions.indo.LB);
+    this.indoRequestForm.controls['type'].setValue(this.selectedCustomer.custSubscriptions.indo.type);
+
     //Set Safari Measurement
     this.safariRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.safari.L);
     this.safariRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.safari.C);
@@ -308,6 +336,8 @@ export class BodyComponent implements OnInit {
     this.coatRequestForm.controls['button'].setValue("select");
     this.coatRequestForm.controls['cut'].setValue("select");
 
+    this.indoRequestForm.controls['type'].setValue("select");
+
     this.safariRequestForm.controls['type'].setValue("select");
     this.safariRequestForm.controls['design'].setValue("select");
     this.safariRequestForm.controls['collar'].setValue("select");
@@ -328,6 +358,7 @@ export class BodyComponent implements OnInit {
     this.jacketRequestForm.reset();
     this.coatRequestForm.reset();
     this.safariRequestForm.reset();
+    this.indoRequestForm.reset();
     this.resetMethod();
     newCustomer.custSubscriptions.shirt = this.shirtRequestForm.value;
     newCustomer.custSubscriptions.pant = this.pantRequestForm.value;
@@ -336,6 +367,7 @@ export class BodyComponent implements OnInit {
     newCustomer.custSubscriptions.jacket = this.jacketRequestForm.value;
     newCustomer.custSubscriptions.coat = this.coatRequestForm.value;
     newCustomer.custSubscriptions.safari = this.safariRequestForm.value;
+    newCustomer.custSubscriptions.indo = this.indoRequestForm.value;
 
     //Service Method Call for Add Customer
     this.appservice.addNewCustomer(newCustomer);
@@ -348,7 +380,7 @@ export class BodyComponent implements OnInit {
   }
 
 
-  associateShirt(newShirt) {
+  associateShirt(newShirt:any) {
     //Below line is updating Shirt Object to new values
     this.selectedCustomer.custSubscriptions.shirt = newShirt;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -360,7 +392,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associatePant(newPant) {
+  associatePant(newPant:any) {
     //Below line is updating Pant Object to new values
     this.selectedCustomer.custSubscriptions.pant = newPant;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -372,7 +404,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateKurta(newKudta) {
+  associateKurta(newKudta:any) {
     //Below line is updating Kudta Object to new values
     this.selectedCustomer.custSubscriptions.kudta = newKudta;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -384,7 +416,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associatePajama(newPajama) {
+  associatePajama(newPajama:any) {
     //Below line is updating Pajama Object to new values
     this.selectedCustomer.custSubscriptions.pajama = newPajama;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -396,7 +428,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateJacket(newJacket) {
+  associateJacket(newJacket:any) {
     //Below line is updating Jacket Object to new values
     this.selectedCustomer.custSubscriptions.jacket = newJacket;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -409,7 +441,7 @@ export class BodyComponent implements OnInit {
   }
 
 
-  associateCoat(newCoat) {
+  associateCoat(newCoat:any) {
     //Below line is updating Coat Object to new values
     this.selectedCustomer.custSubscriptions.coat = newCoat;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -421,12 +453,24 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateSafari(newSafari) {
+  associateSafari(newSafari:any) {
     //Below line is updating Safari Object to new values
     this.selectedCustomer.custSubscriptions.safari = newSafari;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
     this.safariRequestForm.reset();
     $("#safariModal").modal('hide');
+    this.messageSuccess = true;
+    setTimeout(() => {
+      this.messageSuccess = false;
+    }, 3000);
+  }
+
+  associateIndo(newIndo:any) {
+    //Below line is updating Safari Object to new values
+    this.selectedCustomer.custSubscriptions.indo = newIndo;
+    this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
+    this.indoRequestForm.reset();
+    $("#indoModal").modal('hide');
     this.messageSuccess = true;
     setTimeout(() => {
       this.messageSuccess = false;

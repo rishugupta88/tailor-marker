@@ -57,7 +57,8 @@ export class HeaderComponent implements OnInit {
     coatQty: new FormControl(''),
     jacketQty: new FormControl(''),
     suitQty: new FormControl(''),
-    safariQty: new FormControl('')
+    safariQty: new FormControl(''),
+    indoQty: new FormControl('')
   });
 
   convertDate() {
@@ -88,8 +89,9 @@ export class HeaderComponent implements OnInit {
     };
     $("#orderModal").modal(options);
     var currentDate = this.convertDate();
-    this.orderNumber = Math.floor((Math.random() * 100000) + 1);
-    this.orderRequestForm.controls['orderNumber'].setValue(JSON.stringify(this.orderNumber));
+    //For auto generated Order Number
+    //this.orderNumber = Math.floor((Math.random() * 100000) + 1);
+    //this.orderRequestForm.controls['orderNumber'].setValue(JSON.stringify(this.orderNumber));
     this.orderRequestForm.controls['bookingDate'].setValue(currentDate);
 
   }

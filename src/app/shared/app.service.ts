@@ -44,7 +44,6 @@ export class AppService {
 
   updateCustomerMethod(updateCustomerObject: any, customerContact: any) {
     this.updateCustomer = this.afs.collection('customers').doc(customerContact);
-    console.log(updateCustomerObject);
     this.updateCustomer.update(updateCustomerObject);
   }
 

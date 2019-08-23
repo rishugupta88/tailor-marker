@@ -42,7 +42,8 @@
       <!--Selected Customer Code-->
       <div style="color:white;margin-top: 10px;">
         <span class="selectlabel">Selected Customer:</span>
-        <span class="selectText">{{selectedCustomer.custName}} || {{selectedCustomer.custContact}} || {{selectedCustomer.custCopyNumber}} || {{selectedCustomer.custCopyDate}}</span>
+        <span class="selectText">{{selectedCustomer.custName}} || {{selectedCustomer.custContact}} ||
+          {{selectedCustomer.custCopyNumber}} || {{selectedCustomer.custCopyDate}}</span>
       </div>
 
       <div *ngIf="existingCustomerRequestForm.controls['seachNumber'].hasError('pattern')" class="alert alert-danger"
@@ -87,6 +88,9 @@
         </li>
         <li data-toggle="modal" data-target="#safari-suitModal">
           <img src="../../assets/images/icons/safari-suit.jpg" class="features" title="Safari-Suit Measurement">
+        </li>
+        <li data-toggle="modal" data-target="#indoModal">
+          <img src="../../assets/images/icons/indo.jpg" class="features" title="Indo-Western Measurement">
         </li>
       </ul>
     </div>
@@ -150,7 +154,8 @@
             </div>
           </div>
           <div class="form-group">
-            <input type="text" class="form-control" formControlName="custCopyNumber" placeholder="Enter Copy Number" maxlength="10">
+            <input type="text" class="form-control" formControlName="custCopyNumber" placeholder="Enter Copy Number"
+              maxlength="10">
             <div *ngIf="newCustomerRequestForm.controls['custCopyNumber'].hasError('pattern')"
               class="alert alert-danger">
               <i class="fa fa-times-circle" style="color: red;"></i> Copy Number Accepts Alphabets, Numbers and Periods
@@ -187,6 +192,11 @@
         </div>
         <div class="modal-body">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+            <select class="form-control selectControl" formControlName="sleeve">
+              <option value="select">Select Sleeve</option>
+              <option value="hs">Half Sleeve</option>
+              <option value="fs">Full Sleeve</option>
+            </select>
             <ul class="list-inline">
               <li>
                 <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5">
@@ -212,16 +222,17 @@
               <li>
                 <input type="text" class="form-control numberBox" formControlName="LL" placeholder="LL" maxlength="5">
               </li>
+              <li *ngIf='shirtRequestForm.controls["sleeve"].value == "hs"'>
+                <input type="text" class="form-control numberBox" formControlName="AL" placeholder="AL" maxlength="5">
+              </li>
+              <li *ngIf='shirtRequestForm.controls["sleeve"].value == "hs"'>
+                <input type="text" class="form-control numberBox" formControlName="AB" placeholder="AB" maxlength="5">
+              </li>
             </ul>
             <select class="form-control selectControl" formControlName="fit">
               <option value="select">Select Fit</option>
               <option value="sf">Slim Fit</option>
               <option value="cf">Comfort Fit</option>
-            </select>
-            <select class="form-control selectControl" formControlName="sleeve">
-              <option value="select">Select Sleeve</option>
-              <option value="hs">Half Sleeve</option>
-              <option value="fs">Full Sleeve</option>
             </select>
             <select class="form-control selectControl" formControlName="design">
               <option value="select">Select Design</option>
@@ -668,3 +679,64 @@
   </div>
 </form>
 <!--END Safari Suit Modal-Form-->
+
+<!--START Indo-western Modal-Form-->
+<form [formGroup]="indoRequestForm" (ngSubmit)="associateIndo(indoRequestForm.value)" novalidate>
+
+  <!-- Modal-Suit Modal-->
+  <div class="modal fade" id="indoModal" role="dialog">
+    <div class="modal-dialog">
+
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <h4 class="modal-title">Indo-Western Measurement Scale</h4>
+        </div>
+        <div class="modal-body">
+          <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
+              <select class="form-control selectControl" formControlName="type">
+                  <option value="select">Select Type</option>
+                  <option value="st">Straight</option>
+                  <option value="adk">Andhrakha</option>
+                  <option value="indw">Indo-Western</option>
+                </select>
+            <ul class="list-inline">
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5">
+              </li>
+            </ul>
+          </div>
+          <div align="right">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+            <button type="submit" class="btn btn-success" [disabled]="!indoRequestForm.valid">Save</button>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
+</form>
+<!--END Coat Modal-Form-->

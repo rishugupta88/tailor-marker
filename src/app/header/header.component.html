@@ -73,7 +73,7 @@
                 <div class="input-group-addon">
                   <i class="fa fa-odnoklassniki-square"></i>
                 </div>
-                <input type="text" class="form-control" formControlName="orderNumber" readonly>
+                <input type="text" class="form-control" formControlName="orderNumber" placeholder="Enter Book Number">
               </div>
 
               <div class="input-group">
@@ -159,7 +159,6 @@
                   Coat
                   <select class="form-control select-inline" formControlName="coatQty">
                     <option value="">Qty</option>
-
                     <option *ngFor="let qty of Qty" value="{{qty}}">{{qty}}</option>
                   </select>
                 </label>
@@ -184,10 +183,17 @@
                   Safari
                   <select class="form-control select-inline" formControlName="safariQty">
                     <option value="">Qty</option>
-
                     <option *ngFor="let qty of Qty" value="{{qty}}">{{qty}}</option>
                   </select>
                 </label>
+                <label class="checkbox-inline">
+                    Indo-Western
+                    <select class="form-control select-inline" formControlName="indoQty">
+                      <option value="">Qty</option>
+                      <option *ngFor="let qty of Qty" value="{{qty}}">{{qty}}</option>
+                    </select>
+                  </label>
+
               </div>
             </div>
             <!-- /.col-lg-6 -->
