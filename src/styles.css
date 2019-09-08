@@ -1,5 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 
+body{
+    margin: 0;
+    padding: 0;
+}
+
+html{
+    height: 100vh;
+}
+
 .theme-background {
     background-image: url(./assets/images/bck07.jpg);
     background-repeat: no-repeat;
@@ -12,6 +21,7 @@
         background-repeat: no-repeat;
         background-size: 1500px 1280px;
     }
+    
 }
 
 @font-face {

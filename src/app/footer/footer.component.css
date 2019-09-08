@@ -1,9 +1,76 @@
-.footer{
-    font-family: Quicksand-Bold;
-    font-size: 15px;
-    border-top: 1px solid #ffffff;
-    padding-top: 10px;
-    color:#ffffff;
-    bottom: 20px;
-    position: absolute;
-}
+
+
+/* Small devices (landscape phones, 320px and up)*/
+@media (min-width: 320px) { 
+    .footer{
+        font-family: Quicksand-Bold;
+        bottom: 0;
+        border-top: 1px solid #ffffff;
+        margin-top: 200px;
+        position: relative;
+        padding: 10px;
+        font-size: 15px;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        height: 2.5rem;
+        margin-bottom: 20px;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .footer{
+        font-family: Quicksand-Bold;
+        bottom: 0;
+        border-top: 1px solid #ffffff;
+        margin-top: 200px;
+        position: absolute;
+        padding: 10px;
+        font-size: 15px;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        height: 2.5rem;
+        margin-bottom: 20px;
+
+    }
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .footer{
+        font-family: Quicksand-Bold;
+        bottom: 0;
+        border-top: 1px solid #ffffff;
+        margin-top: 200px;
+        position: absolute;
+        padding: 10px;
+        font-size: 15px;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        height: 2.5rem;
+        margin-bottom: 20px;
+
+    }
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    .footer{
+        font-family: Quicksand-Bold;
+        bottom: 0;
+        border-top: 1px solid #ffffff;
+        margin-top: 200px;
+        position: absolute;
+        padding: 10px;
+        font-size: 15px;
+        color: #ffffff;
+        text-align: center;
+        width: 100%;
+        height: 2.5rem;
+        margin-bottom: 20px;
+
+    }
+ }

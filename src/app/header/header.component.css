@@ -1,124 +1,327 @@
-.navbar {
-    margin: 30px;
-}
-
-.navbar-inverse {
-    background: transparent;
-    border: 0px solid black;
-}
-
-.navbar-brand {
-    font-family: Quicksand-Bold;
-    font-size: 25px;
-}
-
-.navbar-right {
-    font-family: Quicksand-Bold;
-    font-size: 20px;
-}
-
-.navbar-right:hover {
-    font-size: 21px;
-}
-
-a {
-    color: #ffffff !important;
-}
-
-.dropdown, .dropdown-toggle, .dropdown-menu {
-    background: transparent !important;
-}
-
-a:hover {
-    background: transparent !important;
-}
-
-.drop-option:hover {
-    font-size: 15px;
-}
-
-
-.msg {
-    font-family: Quicksand-Bold;
-    border: 1px solid #ffffff;
-    margin-top: 4%;
-}
-
-.modal-content {
-    background: transparent !important;
-    border: 1px solid #ffffff;
-    margin-top: 20%;
-}
-
-.modal-title {
-    color: #ffffff !important;
-}
-
-.input-group {
-    margin-top: 20px;
-}
-
-.cart{
-    cursor: pointer;
-}
-
-.cart:hover{
-    color: greenyellow;
+/* Small devices (landscape phones, 315px and up)*/
+@media (min-width: 315px) {  
+    .navbar {
+        margin: 15px;
+    }
     
-}
-
-.mtableData{
-    width: 100px;
-}
-
-label{
-    color:#ffffff;
-}
-
-
-@media (max-width: 1200px) {
-    .navbar-header {
-        float: none;
+    .navbar-inverse {
+        background: transparent;
+        border: 0px solid black;
     }
-    .navbar-left,.navbar-right {
-        float: none !important;
+    .navbar-toggle{
+        margin-right: 0px;
     }
-    .navbar-toggle {
-        display: block;
+    .navbar-brand {
+        font-family: Quicksand-Bold;
+        font-size: 15px;
+        padding: 15px 5px;
     }
-    .navbar-collapse {
-        border-top: 1px solid transparent;
-        box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+    
+    .navbar-right {
+        font-family: Quicksand-Bold;
+        font-size: 20px;
     }
-    .navbar-fixed-top {
-        top: 0;
-        border-width: 0 0 0;
+    
+    .navbar-right:hover {
+        font-size: 21px;
     }
-    .navbar-collapse.collapse {
-        display: none!important;
+    
+    a {
+        color: #ffffff !important;
     }
-    .navbar-nav {
-        float: none!important;
-        margin-top: 7.5px;
+    
+    .dropdown, .dropdown-toggle, .dropdown-menu {
+        background: transparent !important;
     }
-    .navbar-nav>li {
-        float: none;
+    
+    a:hover {
+        background: transparent !important;
     }
-    .navbar-nav>li>a {
-        padding-top: 10px;
-        padding-bottom: 10px;
+    
+    .drop-option:hover {
+        font-size: 15px;
     }
-    .collapse.in{
-        display:block !important;
-    }
-    .navbar-right .dropdown-menu {
-        right: 270px;
-        left: auto;
-    }
-
+    
+    
     .msg {
         font-family: Quicksand-Bold;
         border: 1px solid #ffffff;
-        margin-top: 10%;
+        margin-top: 4%;
+    }
+    
+    .modal-content {
+        background: transparent !important;
+        border: 1px solid #ffffff;
+        margin-top: 20%;
+    }
+    
+    .modal-title {
+        color: #ffffff !important;
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    }
+    
+    .cart{
+        cursor: pointer;
+    }
+    
+    .cart:hover{
+        color: greenyellow;
+        
+    }
+    
+    .mtableData{
+        width: 100px;
+    }
+    
+    label{
+        color:#ffffff;
     }
 }
+
+/* Medium devices (tablets, 768px and up)*/
+@media (min-width: 768px) { 
+    .navbar {
+        margin: 30px;
+    }
+    
+    .navbar-inverse {
+        background: transparent;
+        border: 0px solid black;
+    }
+    .navbar-toggle{
+        margin-right: 0px;
+    }
+    .navbar-brand {
+        font-family: Quicksand-Bold;
+        font-size: 22px;
+        padding: 15px 15px;
+    }
+    
+    .navbar-right {
+        font-family: Quicksand-Bold;
+        font-size: 20px;
+    }
+    
+    .navbar-right:hover {
+        font-size: 21px;
+    }
+    
+    a {
+        color: #ffffff !important;
+    }
+    
+    .dropdown, .dropdown-toggle, .dropdown-menu {
+        background: transparent !important;
+    }
+    
+    a:hover {
+        background: transparent !important;
+    }
+    
+    .drop-option:hover {
+        font-size: 15px;
+    }
+    
+    
+    .msg {
+        font-family: Quicksand-Bold;
+        border: 1px solid #ffffff;
+        margin-top: 4%;
+    }
+    
+    .modal-content {
+        background: transparent !important;
+        border: 1px solid #ffffff;
+        margin-top: 20%;
+    }
+    
+    .modal-title {
+        color: #ffffff !important;
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    }
+    
+    .cart{
+        cursor: pointer;
+    }
+    
+    .cart:hover{
+        color: greenyellow;
+        
+    }
+    
+    .mtableData{
+        width: 100px;
+    }
+    
+    label{
+        color:#ffffff;
+    }
+ }
+
+/* Large devices (desktops, 992px and up)*/
+@media (min-width: 992px) { 
+    .navbar {
+        margin: 30px;
+    }
+    
+    .navbar-inverse {
+        background: transparent;
+        border: 0px solid black;
+    }
+    
+    .navbar-brand {
+        font-family: Quicksand-Bold;
+        font-size: 25px;
+    }
+    
+    .navbar-right {
+        font-family: Quicksand-Bold;
+        font-size: 20px;
+    }
+    
+    .navbar-right:hover {
+        font-size: 21px;
+    }
+    
+    a {
+        color: #ffffff !important;
+    }
+    
+    .dropdown, .dropdown-toggle, .dropdown-menu {
+        background: transparent !important;
+    }
+    
+    a:hover {
+        background: transparent !important;
+    }
+    
+    .drop-option:hover {
+        font-size: 15px;
+    }
+    
+    
+    .msg {
+        font-family: Quicksand-Bold;
+        border: 1px solid #ffffff;
+        margin-top: 4%;
+    }
+    
+    .modal-content {
+        background: transparent !important;
+        border: 1px solid #ffffff;
+        margin-top: 20%;
+    }
+    
+    .modal-title {
+        color: #ffffff !important;
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    }
+    
+    .cart{
+        cursor: pointer;
+    }
+    
+    .cart:hover{
+        color: greenyellow;
+        
+    }
+    
+    .mtableData{
+        width: 100px;
+    }
+    
+    label{
+        color:#ffffff;
+    }
+    
+ }
+
+/* Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) { 
+    .navbar {
+        margin: 30px;
+    }
+    
+    .navbar-inverse {
+        background: transparent;
+        border: 0px solid black;
+    }
+    
+    .navbar-brand {
+        font-family: Quicksand-Bold;
+        font-size: 25px;
+    }
+    
+    .navbar-right {
+        font-family: Quicksand-Bold;
+        font-size: 20px;
+    }
+    
+    .navbar-right:hover {
+        font-size: 21px;
+    }
+    
+    a {
+        color: #ffffff !important;
+    }
+    
+    .dropdown, .dropdown-toggle, .dropdown-menu {
+        background: transparent !important;
+    }
+    
+    a:hover {
+        background: transparent !important;
+    }
+    
+    .drop-option:hover {
+        font-size: 15px;
+    }
+    
+    
+    .msg {
+        font-family: Quicksand-Bold;
+        border: 1px solid #ffffff;
+        margin-top: 4%;
+    }
+    
+    .modal-content {
+        background: transparent !important;
+        border: 1px solid #ffffff;
+        margin-top: 20%;
+    }
+    
+    .modal-title {
+        color: #ffffff !important;
+    }
+    
+    .input-group {
+        margin-top: 20px;
+    }
+    
+    .cart{
+        cursor: pointer;
+    }
+    
+    .cart:hover{
+        color: greenyellow;
+        
+    }
+    
+    .mtableData{
+        width: 100px;
+    }
+    
+    label{
+        color:#ffffff;
+    }
+    
+ }

@@ -23,12 +23,12 @@ export class BodyComponent implements OnInit {
 
   customers: Customer[];
   selectedCustomer: any = "";
-
+  autoCompleteList:any = [];
 
   constructor(private appservice: AppService) {
     this.appservice.getAllCustomers().subscribe(dbCustomers => {
       this.customers = dbCustomers;
-      //console.log(this.customers);
+      this.autocompleteFilter(this.customers);
     });
   }
 
@@ -36,6 +36,16 @@ export class BodyComponent implements OnInit {
     $('[data-toggle="tooltip"]').tooltip();
   }
 
+
+  autocompleteFilter(customers:any) {
+    customers.forEach(customer => {
+      let newObj: any = {};
+      newObj.contact = customer.custContact;
+      newObj.name = customer.custName;
+      this.autoCompleteList.push(newObj);
+    })
+    console.log(this.autoCompleteList);
+  }
 
 
   //GLOBAL FORMS ---START
@@ -181,6 +191,7 @@ export class BodyComponent implements OnInit {
         }, 3000);
       } else {
         this.selectedCustomer = dbCustomer;
+        $("#footer").css("position", "relative");
         console.log(this.selectedCustomer);
         this.showFeatureDiv = true;
         this.setValuestoAllForms();
@@ -209,7 +220,7 @@ export class BodyComponent implements OnInit {
     this.shirtRequestForm.controls['AL'].setValue(this.selectedCustomer.custSubscriptions.shirt.AL);
     this.shirtRequestForm.controls['AB'].setValue(this.selectedCustomer.custSubscriptions.shirt.AB);
     this.shirtRequestForm.controls['fit'].setValue(this.selectedCustomer.custSubscriptions.shirt.fit);
-    this.shirtRequestForm.controls['sleeve'].setValue(this.selectedCustomer.custSubscriptions.shirt.sleeve);    
+    this.shirtRequestForm.controls['sleeve'].setValue(this.selectedCustomer.custSubscriptions.shirt.sleeve);
     this.shirtRequestForm.controls['design'].setValue(this.selectedCustomer.custSubscriptions.shirt.design);
     this.shirtRequestForm.controls['pipingColor'].setValue(this.selectedCustomer.custSubscriptions.shirt.pipingColor);
     this.shirtRequestForm.controls['stitch'].setValue(this.selectedCustomer.custSubscriptions.shirt.stitch);
@@ -380,7 +391,7 @@ export class BodyComponent implements OnInit {
   }
 
 
-  associateShirt(newShirt:any) {
+  associateShirt(newShirt: any) {
     //Below line is updating Shirt Object to new values
     this.selectedCustomer.custSubscriptions.shirt = newShirt;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -392,7 +403,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associatePant(newPant:any) {
+  associatePant(newPant: any) {
     //Below line is updating Pant Object to new values
     this.selectedCustomer.custSubscriptions.pant = newPant;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -404,7 +415,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateKurta(newKudta:any) {
+  associateKurta(newKudta: any) {
     //Below line is updating Kudta Object to new values
     this.selectedCustomer.custSubscriptions.kudta = newKudta;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -416,7 +427,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associatePajama(newPajama:any) {
+  associatePajama(newPajama: any) {
     //Below line is updating Pajama Object to new values
     this.selectedCustomer.custSubscriptions.pajama = newPajama;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -428,7 +439,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateJacket(newJacket:any) {
+  associateJacket(newJacket: any) {
     //Below line is updating Jacket Object to new values
     this.selectedCustomer.custSubscriptions.jacket = newJacket;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -441,7 +452,7 @@ export class BodyComponent implements OnInit {
   }
 
 
-  associateCoat(newCoat:any) {
+  associateCoat(newCoat: any) {
     //Below line is updating Coat Object to new values
     this.selectedCustomer.custSubscriptions.coat = newCoat;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -453,7 +464,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateSafari(newSafari:any) {
+  associateSafari(newSafari: any) {
     //Below line is updating Safari Object to new values
     this.selectedCustomer.custSubscriptions.safari = newSafari;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
@@ -465,7 +476,7 @@ export class BodyComponent implements OnInit {
     }, 3000);
   }
 
-  associateIndo(newIndo:any) {
+  associateIndo(newIndo: any) {
     //Below line is updating Safari Object to new values
     this.selectedCustomer.custSubscriptions.indo = newIndo;
     this.appservice.updateCustomerMethod(this.selectedCustomer, this.selectedCustomer.custContact);
