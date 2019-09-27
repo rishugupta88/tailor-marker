@@ -86,6 +86,10 @@ img:hover {
     padding-top: 5px;
 }
 
+.featureHighlight{
+    border: 4px solid greenyellow;
+}
+
 @media only screen and (max-width: 800px) {
     .level2Container {
         margin-top: 25%;
@@ -95,4 +99,5 @@ img:hover {
         border: 1px solid #ffffff;
         margin-top: 10%;
     }
+  
 }

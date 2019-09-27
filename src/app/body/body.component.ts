@@ -5,6 +5,7 @@ import { AppService } from '../shared/app.service';
 import { HeaderComponent } from '../header/header.component';
 
 import { Customer } from '../shared/customer.model';
+import { Utils } from './utils';
 
 declare var $: any;
 
@@ -23,28 +24,64 @@ export class BodyComponent implements OnInit {
 
   customers: Customer[];
   selectedCustomer: any = "";
-  autoCompleteList:any = [];
+  autoCompleteList: any = [];
+
+  featureActivated = {
+    shirt: '',
+    pant: '',
+    jacket: '',
+    kudta: '',
+    pajama: '',
+    coat: '',
+    safarisuit: '',
+    indowestern: ''
+  };
 
   constructor(private appservice: AppService) {
     this.appservice.getAllCustomers().subscribe(dbCustomers => {
       this.customers = dbCustomers;
       this.autocompleteFilter(this.customers);
     });
+
+    //Autocomplete
+    var options = {
+      data: this.autoCompleteList,
+      getValue: "contact",
+      template: {
+        type: "description",
+        fields: {
+          description: "name"
+        }
+      },
+
+      list: {
+        match: {
+          enabled: true
+        },
+        onClickEvent: () => {
+          let selectedItemValue = $("#seachNumber").getSelectedItemData().contact;
+          let search: any = {};
+          search.seachNumber = selectedItemValue;
+          this.showAllFeatures(search);
+        }
+      }
+    };
+    $(() => {
+      $("#seachNumber").easyAutocomplete(options);
+    })
   }
 
   ngOnInit() {
-    $('[data-toggle="tooltip"]').tooltip();
   }
 
 
-  autocompleteFilter(customers:any) {
+  autocompleteFilter(customers: any) {
     customers.forEach(customer => {
       let newObj: any = {};
       newObj.contact = customer.custContact;
       newObj.name = customer.custName;
       this.autoCompleteList.push(newObj);
     })
-    console.log(this.autoCompleteList);
   }
 
 
@@ -58,7 +95,7 @@ export class BodyComponent implements OnInit {
   });
 
   existingCustomerRequestForm = new FormGroup({
-    seachNumber: new FormControl('', [Validators.pattern('^[0-9-]*$'), Validators.required, Validators.maxLength(12)]),
+    seachNumber: new FormControl('', [Validators.pattern('^[0-9-]*$'), Validators.required]),
   });
 
   shirtRequestForm = new FormGroup({
@@ -182,7 +219,7 @@ export class BodyComponent implements OnInit {
   }
 
   //Main Page Search Fucntionality --START
-  showAllFeatures(search) {
+  showAllFeatures(search: any) {
     this.appservice.getCustomerById(search.seachNumber).subscribe(dbCustomer => {
       if (!dbCustomer) {
         this.customerNotFound = true;
@@ -192,8 +229,8 @@ export class BodyComponent implements OnInit {
       } else {
         this.selectedCustomer = dbCustomer;
         $("#footer").css("position", "relative");
-        console.log(this.selectedCustomer);
         this.showFeatureDiv = true;
+        this.featureHighlight();
         this.setValuestoAllForms();
         setTimeout(() => {
           this.customerNotFound = false;
@@ -203,6 +240,19 @@ export class BodyComponent implements OnInit {
   }
 
   //Main Page Search Fucntionality --END
+
+
+  featureHighlight(){
+    this.selectedCustomer.custSubscriptions.shirt.L?this.featureActivated.shirt = 'highlight':this.featureActivated.shirt = '';
+    this.selectedCustomer.custSubscriptions.pant.L?this.featureActivated.pant = 'highlight':this.featureActivated.pant = '';
+    this.selectedCustomer.custSubscriptions.kudta.L?this.featureActivated.kudta = 'highlight':this.featureActivated.kudta = '';
+    this.selectedCustomer.custSubscriptions.pajama.L?this.featureActivated.pajama = 'highlight':this.featureActivated.pajama = '';
+    this.selectedCustomer.custSubscriptions.jacket.type?this.featureActivated.jacket = 'highlight':this.featureActivated.jacket = '';
+    this.selectedCustomer.custSubscriptions.coat.L?this.featureActivated.coat = 'highlight':this.featureActivated.coat = '';
+    this.selectedCustomer.custSubscriptions.indo.L?this.featureActivated.indowestern = 'highlight':this.featureActivated.indowestern = '';
+    this.selectedCustomer.custSubscriptions.safari.L?this.featureActivated.safarisuit = 'highlight':this.featureActivated.safarisuit = '';
+  }
+
 
 
   setValuestoAllForms() {
@@ -310,7 +360,6 @@ export class BodyComponent implements OnInit {
     this.safariRequestForm.controls['cut'].setValue(this.selectedCustomer.custSubscriptions.safari.cut);
 
     //Set KP Measurement
-
 
   }
 

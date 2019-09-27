@@ -29,11 +29,11 @@
         <div class="input-group-addon">
           <i class="fa fa-mobile"></i>
         </div>
-        <input type="text" class="form-control" formControlName="seachNumber"
+        <input type="text" id="seachNumber" class="form-control" formControlName="seachNumber"
           placeholder="Enter Mobile Number to Search a Customer..." maxlength="12" minlength="10" data-toggle="tooltip"
-          data-placement="top" title="Enter Mobile Number to Search a Customer...">
+          data-placement="top" autocomplete="off">
         <span class="input-group-btn">
-          <button type="submit" class="btn btn-success" [disabled]="!existingCustomerRequestForm.valid">Go!</button>
+          <button type="submit" class="btn btn-success">Go!</button>
         </span>
 
       </div>
@@ -69,28 +69,28 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
       <ul class="list-inline">
         <li data-toggle="modal" data-target="#shirtModal">
-          <img src="../../assets/images/icons/shirt.jpg" class="features" title="Shirt Measurement">
+          <img src="../../assets/images/icons/shirt.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.shirt =='highlight'}" title="Shirt Measurement">
         </li>
         <li data-toggle="modal" data-target="#pantModal">
-          <img src="../../assets/images/icons/pant.jpg" class="features" title="Pant Measurement">
+          <img src="../../assets/images/icons/pant.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.pant =='highlight'}" title="Pant Measurement">
         </li>
         <li data-toggle="modal" data-target="#kudtaModal">
-          <img src="../../assets/images/icons/kudta.jpg" class="features" title="kudta Measurement">
+          <img src="../../assets/images/icons/kudta.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.kudta =='highlight'}" title="kudta Measurement">
         </li>
         <li data-toggle="modal" data-target="#pajamaModal">
-          <img src="../../assets/images/icons/pajama.jpg" class="features" title="Pajama Measurement">
+          <img src="../../assets/images/icons/pajama.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.pajama =='highlight'}" title="Pajama Measurement">
         </li>
         <li data-toggle="modal" data-target="#jacketModal">
-          <img src="../../assets/images/icons/jacket.jpg" class="features" title="Jacket Measurement">
+          <img src="../../assets/images/icons/jacket.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.jacket =='highlight'}" title="Jacket Measurement">
         </li>
         <li data-toggle="modal" data-target="#coatModal">
-          <img src="../../assets/images/icons/suit.jpg" class="features" title="Coat Measurement">
+          <img src="../../assets/images/icons/suit.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.coat =='highlight'}" title="Coat Measurement">
         </li>
         <li data-toggle="modal" data-target="#safari-suitModal">
-          <img src="../../assets/images/icons/safari-suit.jpg" class="features" title="Safari-Suit Measurement">
+          <img src="../../assets/images/icons/safari-suit.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.safarisuit =='highlight'}" title="Safari-Suit Measurement">
         </li>
         <li data-toggle="modal" data-target="#indoModal">
-          <img src="../../assets/images/icons/indo.jpg" class="features" title="Indo-Western Measurement">
+          <img src="../../assets/images/icons/indo.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.indowestern =='highlight'}" title="Indo-Western Measurement">
         </li>
       </ul>
     </div>
@@ -252,6 +252,8 @@
               <option value="bc">Button Contrast</option>
               <option value="bs">Button Same</option>
             </select>
+            <input type="file">
+
           </div>
           <div align="right">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
