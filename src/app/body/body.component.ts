@@ -246,7 +246,7 @@ export class BodyComponent implements OnInit {
     this.selectedCustomer.custSubscriptions.pant.L?this.featureActivated.pant = 'highlight':this.featureActivated.pant = '';
     this.selectedCustomer.custSubscriptions.kudta.L?this.featureActivated.kudta = 'highlight':this.featureActivated.kudta = '';
     this.selectedCustomer.custSubscriptions.pajama.L?this.featureActivated.pajama = 'highlight':this.featureActivated.pajama = '';
-    this.selectedCustomer.custSubscriptions.jacket.type?this.featureActivated.jacket = 'highlight':this.featureActivated.jacket = '';
+    this.selectedCustomer.custSubscriptions.jacket.type != "select"?this.featureActivated.jacket = 'highlight':this.featureActivated.jacket = '';
     this.selectedCustomer.custSubscriptions.coat.L?this.featureActivated.coat = 'highlight':this.featureActivated.coat = '';
     this.selectedCustomer.custSubscriptions.indo.L?this.featureActivated.indowestern = 'highlight':this.featureActivated.indowestern = '';
     this.selectedCustomer.custSubscriptions.safari.L?this.featureActivated.safarisuit = 'highlight':this.featureActivated.safarisuit = '';
