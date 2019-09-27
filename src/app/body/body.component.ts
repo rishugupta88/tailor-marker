@@ -5,7 +5,6 @@ import { AppService } from '../shared/app.service';
 import { HeaderComponent } from '../header/header.component';
 
 import { Customer } from '../shared/customer.model';
-import { Utils } from './utils';
 
 declare var $: any;
 
