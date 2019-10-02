@@ -6,6 +6,8 @@ import { HeaderComponent } from '../header/header.component';
 
 import { Customer } from '../shared/customer.model';
 
+import { UtilService } from '../shared/app.utils.service';
+
 declare var $: any;
 
 @Component({
@@ -25,18 +27,10 @@ export class BodyComponent implements OnInit {
   selectedCustomer: any = "";
   autoCompleteList: any = [];
 
-  featureActivated = {
-    shirt: '',
-    pant: '',
-    jacket: '',
-    kudta: '',
-    pajama: '',
-    coat: '',
-    safarisuit: '',
-    indowestern: ''
-  };
+  featureActivated = {};
 
-  constructor(private appservice: AppService) {
+  // Constructor START
+  constructor(private appservice: AppService, private utilsService: UtilService) {
     this.appservice.getAllCustomers().subscribe(dbCustomers => {
       this.customers = dbCustomers;
       this.autocompleteFilter(this.customers);
@@ -70,19 +64,10 @@ export class BodyComponent implements OnInit {
     })
   }
 
+  // Constructor END
+
   ngOnInit() {
   }
-
-
-  autocompleteFilter(customers: any) {
-    customers.forEach(customer => {
-      let newObj: any = {};
-      newObj.contact = customer.custContact;
-      newObj.name = customer.custName;
-      this.autoCompleteList.push(newObj);
-    })
-  }
-
 
   //GLOBAL FORMS ---START
   newCustomerRequestForm = new FormGroup({
@@ -143,8 +128,15 @@ export class BodyComponent implements OnInit {
   });
 
   jacketRequestForm = new FormGroup({
-    type: new FormControl('select'),
-    pattern: new FormControl('select')
+    L: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    C: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    W: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    S: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    N: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    B: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    LB: new FormControl('', [Validators.pattern('^[0-9.]*$'), Validators.required]),
+    pattern: new FormControl('select'),
+    style: new FormControl('select')
   });
 
 
@@ -217,6 +209,17 @@ export class BodyComponent implements OnInit {
     $("#addNewCust").modal("show");
   }
 
+  //Autocomplete Filter - START
+  autocompleteFilter(customers: any) {
+    customers.forEach(customer => {
+      let newObj: any = {};
+      newObj.contact = customer.custContact;
+      newObj.name = customer.custName;
+      this.autoCompleteList.push(newObj);
+    })
+  }
+  //Autocomplete Filter - END
+
   //Main Page Search Fucntionality --START
   showAllFeatures(search: any) {
     this.appservice.getCustomerById(search.seachNumber).subscribe(dbCustomer => {
@@ -229,7 +232,8 @@ export class BodyComponent implements OnInit {
         this.selectedCustomer = dbCustomer;
         $("#footer").css("position", "relative");
         this.showFeatureDiv = true;
-        this.featureHighlight();
+        this.featureActivated = this.utilsService.featureHighlight(this.selectedCustomer);
+        //this.featureHighlight();
         this.setValuestoAllForms();
         setTimeout(() => {
           this.customerNotFound = false;
@@ -239,19 +243,6 @@ export class BodyComponent implements OnInit {
   }
 
   //Main Page Search Fucntionality --END
-
-
-  featureHighlight(){
-    this.selectedCustomer.custSubscriptions.shirt.L?this.featureActivated.shirt = 'highlight':this.featureActivated.shirt = '';
-    this.selectedCustomer.custSubscriptions.pant.L?this.featureActivated.pant = 'highlight':this.featureActivated.pant = '';
-    this.selectedCustomer.custSubscriptions.kudta.L?this.featureActivated.kudta = 'highlight':this.featureActivated.kudta = '';
-    this.selectedCustomer.custSubscriptions.pajama.L?this.featureActivated.pajama = 'highlight':this.featureActivated.pajama = '';
-    this.selectedCustomer.custSubscriptions.jacket.type != "select"?this.featureActivated.jacket = 'highlight':this.featureActivated.jacket = '';
-    this.selectedCustomer.custSubscriptions.coat.L?this.featureActivated.coat = 'highlight':this.featureActivated.coat = '';
-    this.selectedCustomer.custSubscriptions.indo.L?this.featureActivated.indowestern = 'highlight':this.featureActivated.indowestern = '';
-    this.selectedCustomer.custSubscriptions.safari.L?this.featureActivated.safarisuit = 'highlight':this.featureActivated.safarisuit = '';
-  }
-
 
 
   setValuestoAllForms() {
@@ -310,8 +301,15 @@ export class BodyComponent implements OnInit {
     this.pajamaRequestForm.controls['pocket'].setValue(this.selectedCustomer.custSubscriptions.pajama.pocket);
 
     //Set Jacket Measurement
-    this.jacketRequestForm.controls['type'].setValue(this.selectedCustomer.custSubscriptions.jacket.type);
+    this.jacketRequestForm.controls['L'].setValue(this.selectedCustomer.custSubscriptions.jacket.L);
+    this.jacketRequestForm.controls['C'].setValue(this.selectedCustomer.custSubscriptions.jacket.C);
+    this.jacketRequestForm.controls['W'].setValue(this.selectedCustomer.custSubscriptions.jacket.W);
+    this.jacketRequestForm.controls['S'].setValue(this.selectedCustomer.custSubscriptions.jacket.S);
+    this.jacketRequestForm.controls['N'].setValue(this.selectedCustomer.custSubscriptions.jacket.N);
+    this.jacketRequestForm.controls['B'].setValue(this.selectedCustomer.custSubscriptions.jacket.B);
+    this.jacketRequestForm.controls['LB'].setValue(this.selectedCustomer.custSubscriptions.jacket.LB);
     this.jacketRequestForm.controls['pattern'].setValue(this.selectedCustomer.custSubscriptions.jacket.pattern);
+    this.jacketRequestForm.controls['style'].setValue(this.selectedCustomer.custSubscriptions.jacket.style);
 
 
     //Set Coat Measurement
@@ -385,8 +383,8 @@ export class BodyComponent implements OnInit {
     this.pajamaRequestForm.controls['pocket'].setValue("select");
     this.pajamaRequestForm.controls['type'].setValue("select");
 
-    this.jacketRequestForm.controls['type'].setValue("select");
     this.jacketRequestForm.controls['pattern'].setValue("select");
+    this.jacketRequestForm.controls['style'].setValue("select");
 
     this.coatRequestForm.controls['type'].setValue("select");
     this.coatRequestForm.controls['design'].setValue("select");

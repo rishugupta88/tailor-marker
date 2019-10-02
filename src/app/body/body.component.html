@@ -69,28 +69,37 @@
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
       <ul class="list-inline">
         <li data-toggle="modal" data-target="#shirtModal">
-          <img src="../../assets/images/icons/shirt.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.shirt =='highlight'}" title="Shirt Measurement">
+          <img src="../../assets/images/icons/shirt.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.shirt =='highlight'}" title="Shirt Measurement">
         </li>
         <li data-toggle="modal" data-target="#pantModal">
-          <img src="../../assets/images/icons/pant.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.pant =='highlight'}" title="Pant Measurement">
+          <img src="../../assets/images/icons/pant.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.pant =='highlight'}" title="Pant Measurement">
         </li>
         <li data-toggle="modal" data-target="#kudtaModal">
-          <img src="../../assets/images/icons/kudta.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.kudta =='highlight'}" title="kudta Measurement">
+          <img src="../../assets/images/icons/kudta.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.kudta =='highlight'}" title="kudta Measurement">
         </li>
         <li data-toggle="modal" data-target="#pajamaModal">
-          <img src="../../assets/images/icons/pajama.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.pajama =='highlight'}" title="Pajama Measurement">
+          <img src="../../assets/images/icons/pajama.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.pajama =='highlight'}" title="Pajama Measurement">
         </li>
         <li data-toggle="modal" data-target="#jacketModal">
-          <img src="../../assets/images/icons/jacket.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.jacket =='highlight'}" title="Jacket Measurement">
+          <img src="../../assets/images/icons/jacket.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.jacket =='highlight'}" title="Jacket Measurement">
         </li>
         <li data-toggle="modal" data-target="#coatModal">
-          <img src="../../assets/images/icons/suit.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.coat =='highlight'}" title="Coat Measurement">
+          <img src="../../assets/images/icons/suit.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.coat =='highlight'}" title="Coat Measurement">
         </li>
         <li data-toggle="modal" data-target="#safari-suitModal">
-          <img src="../../assets/images/icons/safari-suit.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.safarisuit =='highlight'}" title="Safari-Suit Measurement">
+          <img src="../../assets/images/icons/safari-suit.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.safarisuit =='highlight'}" title="Safari-Suit Measurement">
         </li>
         <li data-toggle="modal" data-target="#indoModal">
-          <img src="../../assets/images/icons/indo.jpg" class="features" [ngClass]="{'featureHighlight': featureActivated.indowestern =='highlight'}" title="Indo-Western Measurement">
+          <img src="../../assets/images/icons/indo.jpg" class="features"
+            [ngClass]="{'featureHighlight': featureActivated.indowestern =='highlight'}"
+            title="Indo-Western Measurement">
         </li>
       </ul>
     </div>
@@ -199,34 +208,44 @@
             </select>
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5" title="C">
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5" title="S">
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5" title="A">
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5"
+                  title="A">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5" title="N">
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="LU" placeholder="LU" maxlength="5" title="LU">
+                <input type="text" class="form-control numberBox" formControlName="LU" placeholder="LU" maxlength="5"
+                  title="LU">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="LL" placeholder="LL" maxlength="5" title="LL">
+                <input type="text" class="form-control numberBox" formControlName="LL" placeholder="LL" maxlength="5"
+                  title="LL">
               </li>
               <li *ngIf='shirtRequestForm.controls["sleeve"].value == "hs"'>
-                <input type="text" class="form-control numberBox" formControlName="AL" placeholder="AL" maxlength="5" title="AL">
+                <input type="text" class="form-control numberBox" formControlName="AL" placeholder="AL" maxlength="5"
+                  title="AL">
               </li>
               <li *ngIf='shirtRequestForm.controls["sleeve"].value == "hs"'>
-                <input type="text" class="form-control numberBox" formControlName="AB" placeholder="AB" maxlength="5"title="AB">
+                <input type="text" class="form-control numberBox" formControlName="AB" placeholder="AB" maxlength="5"
+                  title="AB">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="fit">
@@ -240,7 +259,8 @@
               <option value="s">Simple</option>
             </select>
             <div class="form-group" *ngIf='shirtRequestForm.controls["design"].value == "p"'>
-              <input type="color" formControlName="pipingColor" placeholder="Select Color" style="width:535px" title="color">
+              <input type="color" formControlName="pipingColor" placeholder="Select Color" style="width:535px"
+                title="color">
             </div>
             <select class="form-control selectControl" formControlName="stitch">
               <option value="select">Select Stitch</option>
@@ -252,8 +272,6 @@
               <option value="bc">Button Contrast</option>
               <option value="bs">Button Same</option>
             </select>
-            <input type="file">
-
           </div>
           <div align="right">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -285,19 +303,24 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control pantNumberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control pantNumberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="H" placeholder="H" maxlength="5" title="H">
+                <input type="text" class="form-control pantNumberBox" formControlName="H" placeholder="H" maxlength="5"
+                  title="H">
               </li>
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="IL" placeholder="IL" title="IL" maxlength="5">
+                <input type="text" class="form-control pantNumberBox" formControlName="IL" placeholder="IL" title="IL"
+                  maxlength="5">
               </li>
               <li>
-                <input type="text" class="form-control pantNumberBox" formControlName="B" placeholder="B" maxlength="5" title="B">
+                <input type="text" class="form-control pantNumberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="fit">
@@ -351,30 +374,36 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5" title="C">
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5" title="S">
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5" title="A">
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5"
+                  title="A">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5" title="N">
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
               </li>
               <li>
                 <input type="text" class="form-control numberBox" formControlName="kera" placeholder="Kera" title="kera"
                   maxlength="5">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="kamar" placeholder="Kamar" title="kamar"
-                  maxlength="5">
+                <input type="text" class="form-control numberBox" formControlName="kamar" placeholder="Kamar"
+                  title="kamar" maxlength="5">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="collar">
@@ -439,19 +468,24 @@
             </select>
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5" title="B">
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
               </li>
               <li *ngIf='pajamaRequestForm.controls["type"].value == "pp"'>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li *ngIf='pajamaRequestForm.controls["type"].value == "pp"'>
-                <input type="text" class="form-control numberBox" formControlName="H" placeholder="H" maxlength="5" title="H">
+                <input type="text" class="form-control numberBox" formControlName="H" placeholder="H" maxlength="5"
+                  title="H">
               </li>
               <li *ngIf='pajamaRequestForm.controls["type"].value == "pp"'>
-                <input type="text" class="form-control numberBox" formControlName="IL" placeholder="IL" maxlength="5" title="IL">
+                <input type="text" class="form-control numberBox" formControlName="IL" placeholder="IL" maxlength="5"
+                  title="IL">
               </li>
             </ul>
           </div>
@@ -482,16 +516,50 @@
         </div>
         <div class="modal-body">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
-            <select class="form-control selectControl" formControlName="type">
-              <option value="select">Select WaistCoat Type</option>
-              <option value="vc">V-Cut</option>
-              <option value="bc">Ban Collar</option>
-            </select>
+
+            <ul class="list-inline">
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
+              </li>
+              <li>
+                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5"
+                  title="LB">
+              </li>
+            </ul>
             <select class="form-control selectControl" formControlName="pattern">
-              <option value="select">Select Pattern</option>
-              <option value="s">Simple</option>
-              <option value="d">Designer</option>
+                <option value="select">Select Pattern</option>
+                <option value="s">Simple</option>
+                <option value="d">Designer</option>
             </select>
+            <select class="form-control selectControl" formControlName="style">
+                <option value="select">Select Style</option>
+                <option value="bc">Single Breast</option>
+                <option value="bs">Double Breast</option>
+                <option value="bc">Ban Collar</option>
+                <option value="adk">Andhrakha</option>
+              </select>
+           
           </div>
           <div align="right">
             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
@@ -524,28 +592,36 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5" title="C">
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5" title="S">
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5" title="A">
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5"
+                  title="A">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5" title="N">
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5" title="B">
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5" title="LB">
+                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5"
+                  title="LB">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="type">
@@ -613,28 +689,36 @@
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5" title="C">
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5" title="S">
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5" title="A">
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5"
+                  title="A">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5" title="N">
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5" title="B">
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5" title="LB">
+                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5"
+                  title="LB">
               </li>
             </ul>
             <select class="form-control selectControl" formControlName="type">
@@ -695,36 +779,44 @@
         </div>
         <div class="modal-body">
           <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12" align="center">
-              <select class="form-control selectControl" formControlName="type">
-                  <option value="select">Select Type</option>
-                  <option value="st">Straight</option>
-                  <option value="adk">Andhrakha</option>
-                  <option value="indw">Indo-Western</option>
-                </select>
+            <select class="form-control selectControl" formControlName="type">
+              <option value="select">Select Type</option>
+              <option value="st">Straight</option>
+              <option value="adk">Andhrakha</option>
+              <option value="indw">Indo-Western</option>
+            </select>
             <ul class="list-inline">
               <li>
-                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5" title="L">
+                <input type="text" class="form-control numberBox" formControlName="L" placeholder="L" maxlength="5"
+                  title="L">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5" title="C">
+                <input type="text" class="form-control numberBox" formControlName="C" placeholder="C" maxlength="5"
+                  title="C">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5" title="W">
+                <input type="text" class="form-control numberBox" formControlName="W" placeholder="W" maxlength="5"
+                  title="W">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5" title="S">
+                <input type="text" class="form-control numberBox" formControlName="S" placeholder="S" maxlength="5"
+                  title="S">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5" title="A">
+                <input type="text" class="form-control numberBox" formControlName="A" placeholder="A" maxlength="5"
+                  title="A">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5" title="N">
+                <input type="text" class="form-control numberBox" formControlName="N" placeholder="N" maxlength="5"
+                  title="N">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5" title="B">
+                <input type="text" class="form-control numberBox" formControlName="B" placeholder="B" maxlength="5"
+                  title="B">
               </li>
               <li>
-                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5" title="LB">
+                <input type="text" class="form-control numberBox" formControlName="LB" placeholder="LB" maxlength="5"
+                  title="LB">
               </li>
             </ul>
           </div>

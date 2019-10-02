@@ -14,6 +14,8 @@ import { HeaderComponent } from './header/header.component';
 import { BodyComponent } from './body/body.component';
 
 import { AppService } from './shared/app.service';
+import { UtilService } from './shared/app.utils.service';
+
 import { OrdersComponent } from './orders/orders.component';
 import { TestfeatureComponent } from './testfeature/testfeature.component';
 import { FooterComponent } from './footer/footer.component';
@@ -35,7 +37,7 @@ import { FooterComponent } from './footer/footer.component';
     AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule
   ],
-  providers: [AppService],
+  providers: [AppService, UtilService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
