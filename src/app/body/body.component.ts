@@ -21,7 +21,9 @@ export class BodyComponent implements OnInit {
   showFeatureDiv: boolean = false;
   messageSuccess: boolean = false;
   messageError: boolean = false;
+  custExistFlag:boolean = false;
   customerNotFound: boolean = false;
+  errorMsg: string;
 
   customers: Customer[];
   selectedCustomer: any = "";
@@ -61,6 +63,7 @@ export class BodyComponent implements OnInit {
     };
     $(() => {
       $("#seachNumber").easyAutocomplete(options);
+      $(".eac-description").css("width", "");
     })
   }
 
@@ -219,6 +222,17 @@ export class BodyComponent implements OnInit {
     })
   }
   //Autocomplete Filter - END
+
+  //Validate if customer is already exist
+  validateCustomer() {
+    let newContactNumber = this.newCustomerRequestForm.get('custContact').value;
+    this.appservice.getCustomerById(newContactNumber).subscribe(customer => {
+      if (customer) {
+        this.custExistFlag = true;
+        this.newCustomerRequestForm.controls['custContact'].setErrors({'incorrect': true});
+      }
+    });
+  }
 
   //Main Page Search Fucntionality --START
   showAllFeatures(search: any) {
