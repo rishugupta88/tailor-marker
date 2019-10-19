@@ -230,6 +230,9 @@ export class BodyComponent implements OnInit {
       if (customer) {
         this.custExistFlag = true;
         this.newCustomerRequestForm.controls['custContact'].setErrors({'incorrect': true});
+        setTimeout(() => {
+          this.custExistFlag = false;
+        }, 5000);
       }
     });
   }
