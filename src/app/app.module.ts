@@ -4,8 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ReactiveFormsModule } from '@angular/forms';
 import { environment } from '../environments/environment';
 
-import { AngularFireModule } from "@angular/fire";
-import { AngularFirestoreModule } from "@angular/fire/firestore";
+import {AngularFireModule} from '@angular/fire/compat';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -30,12 +29,11 @@ import { FooterComponent } from './footer/footer.component';
     FooterComponent
   ],
   imports: [
-    BrowserModule, 
-    FormsModule, 
+    BrowserModule,
+    FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
     AngularFireModule.initializeApp(environment.firebaseConfig),
-    AngularFirestoreModule
   ],
   providers: [AppService, UtilService],
   bootstrap: [AppComponent]

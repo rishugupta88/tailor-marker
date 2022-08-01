@@ -1,13 +1,13 @@
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Customer } from './customer.model';
-import { AngularFirestore, AngularFirestoreDocument, AngularFirestoreCollection } from '@angular/fire/firestore';
+import {AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument} from '@angular/fire/compat/firestore';
 
 
 @Injectable()
 export class AppService {
 
-  //customers
+  // customers
   postColl: AngularFirestoreCollection<Customer>;
   getDoc: AngularFirestoreDocument<any>;
   customers: Observable<Customer[]>;
@@ -15,7 +15,7 @@ export class AppService {
   updateCustomer: any;
 
 
-  //orders
+  // orders
   OrdersColl: AngularFirestoreCollection<any>;
   orders: Observable<any>;
   updateOrder: any;
@@ -48,7 +48,7 @@ export class AppService {
   }
 
 
-  //Order Section --START 
+  //Order Section --START
   createNewOrder(order: any) {
     this.afs.collection('orders').doc(order.orderNumber).set(order);
   }
